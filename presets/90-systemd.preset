@@ -11,10 +11,10 @@
 # should be enabled by default, even if the distribution follows a general
 # default-off policy.
 
-enable remote-fs.target
-enable remote-cryptsetup.target
-enable remote-integritysetup.target
-enable remote-veritysetup.target
+disable remote-fs.target
+disable remote-cryptsetup.target
+disable remote-integritysetup.target
+disable remote-veritysetup.target
 enable machines.target
 
 enable getty@.service
@@ -22,8 +22,8 @@ enable getty@.service
 enable systemd-boot-clear-sysfail.service
 enable systemd-boot-update.service
 enable systemd-confext.service
-enable systemd-homed.service
-enable systemd-homed-activate.service
+disable systemd-homed.service
+disable systemd-homed-activate.service
 enable systemd-journald-audit.socket
 enable systemd-mountfsd.socket
 enable systemd-network-generator.service

@@ -406,9 +406,6 @@ possible_common_cc_flags = [
         '-Werror=strict-flex-arrays',
         '-Werror=undef',
         '-Wfloat-equal',
-        # gperf prevents us from enabling this because it does not emit fallthrough
-        # attribute with clang.
-        #'-Wimplicit-fallthrough',
         '-Wimplicit-fallthrough=5',
         '-Winit-self',
         '-Wlogical-op',
@@ -427,11 +424,8 @@ possible_common_cc_flags = [
         '-Wwrite-strings',
         '-Wzero-as-null-pointer-constant',
         '-Wzero-length-bounds',
-
-        # negative arguments are correctly detected starting with meson 0.46.
-        '-Wno-error=#warnings',  # clang
-        '-Wno-string-plus-int',  # clang
-
+        '-Wno-error=#warnings',
+        '-Wno-string-plus-int',
         '-fdiagnostics-show-option',
         '-fno-common',
         '-fstack-protector',
@@ -882,20 +876,20 @@ conf.set_quoted('NOBODY_GROUP_NAME', nobody_group)
 static_ugids = []
 foreach option : ['adm-gid',
                   'audio-gid',
-                  'cdrom-gid',
                   'clock-gid',
-                  'dialout-gid',
                   'disk-gid',
                   'input-gid',
                   'kmem-gid',
                   'kvm-gid',
                   'lp-gid',
+                  'optical-gid',
                   'render-gid',
                   'sgx-gid',
-                  'tape-gid',
+                  'storage-gid',
                   'tty-gid',
                   'users-gid',
                   'utmp-gid',
+                  'uucp-gid',
                   'video-gid',
                   'wheel-gid',
                   'systemd-journal-gid',
